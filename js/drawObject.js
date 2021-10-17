@@ -44,10 +44,12 @@ var cube = new THREE.Mesh( geometry, material);
 scene.add(cube);
 camera.position.z = 4;
 
+
 //update animation here
 var updateAnimation = function (){
     // cube.rotation.x += .01;
-    // cube.rotation.y += .005;
+    cube.rotation.y += .005;
+    cube.rotation.x = .27;
     // cube.scale.x += .001;
     // cube.rotation.y += .01;
 
