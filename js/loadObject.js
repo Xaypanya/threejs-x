@@ -6,7 +6,16 @@ document.body.appendChild(renderer.domElement)
 
 //NOTE setup scene
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0x334756);
+
+// ENV MAPS
+const  sceneTextureLoader = new THREE.TextureLoader()
+
+sceneTextureLoader.load('../img/Vangvieng.jpeg',(img)=>{
+    scene.background = img
+})
+
+// scene.background = new THREE.Color(0x334756);
+
 //NOTE setup camera
 var camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -36,6 +45,8 @@ controls = new THREE.OrbitControls(camera, renderer.domElement)
 hlight = new THREE.AmbientLight (0x404040,8);
 scene.add(hlight);
 
+
+var material = new THREE.MeshFaceMaterial();
 var model;
 let loader = new THREE.GLTFLoader();
 loader.load('models/Tiger_Head_Bottle.gltf', function(gltf){
